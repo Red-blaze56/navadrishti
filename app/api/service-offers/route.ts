@@ -544,7 +544,7 @@ export async function POST(request: NextRequest) {
     const capabilityData = {
       service_offer_id: offer.id,
       capability_name: String(body.title || '').trim(),
-      capability_kind: offerType === 'financial' ? 'financial' : offerType === 'service' ? 'skill' : offerType === 'material' ? 'item' : 'asset',
+      capability_kind: offerType === 'financial' ? 'financial' : offerType === 'service' ? 'skill' : offerType === 'material' ? 'item' : offerType === 'infrastructure' ? 'infrastructure' : 'asset',
       capability_description: String(body.description || '').trim() || null,
       synonyms: sanitizeTextArray(body.tags || []),
       unit: offerType === 'financial' ? 'offer' : offerType === 'service' ? 'service' : offerType === 'material' ? 'item' : 'asset',
